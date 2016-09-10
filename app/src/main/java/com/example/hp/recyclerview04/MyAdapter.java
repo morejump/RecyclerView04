@@ -2,10 +2,13 @@ package com.example.hp.recyclerview04;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -40,7 +43,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public int getItemCount() {
         return list.size();
     }
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        private ImageView imageView;
         private TextView name;
         private TextView SDT;
 
@@ -64,6 +68,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             super(itemView);
             name= (TextView) itemView.findViewById(R.id.txt_name);
             SDT= (TextView) itemView.findViewById(R.id.txt_SDT);
+            imageView= (ImageView) itemView.findViewById(R.id.img_avatar);
+            imageView.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View view) {
+//            Toast.makeText(, "", Toast.LENGTH_SHORT).show();
+            Log.d("bug", "clicked image :)) ");
         }
     }
 }
